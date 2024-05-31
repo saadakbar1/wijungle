@@ -128,19 +128,29 @@ const Dashboard = () => {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-8">
-      <h1 className="text-5xl mb-8 text-center"><strong>Dashboard</strong></h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' }}>
-          <Line data={lineData} options={chartOptions} />
+      {/* Logo Container */}
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <img src="logo.png" alt="Logo" className="h-8" />
         </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' }}>
-          <Bar data={barData} options={chartOptions} />
-        </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' }}>
-          <Pie data={pieData} options={chartOptionsWithoutScales} />
-        </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' }}>
-          <Doughnut data={doughnutData} options={chartOptionsWithoutScales} />
+        <h1 className="text-5xl pr-16"><strong>Dashboard</strong></h1>
+        <div></div> {/* Adjust spacing if needed */}
+      </div>
+      {/* Dashboard Content */}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' ,width: '700px' }}>
+            <Line data={lineData} options={chartOptions} />
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' ,width: '700px' }}>
+            <Bar data={barData} options={chartOptions} />
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px',width: '700px' }}>
+            <Pie data={pieData} options={chartOptionsWithoutScales} />
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg" style={{ height: '500px' ,width: '700px' }}>
+            <Doughnut data={doughnutData} options={chartOptionsWithoutScales} />
+          </div>
         </div>
       </div>
     </div>
