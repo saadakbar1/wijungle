@@ -13,13 +13,25 @@ const Dashboard = () => {
       setData(response.data);
     });
   }, []);
-//taken 30% of json data
+
+
+  const formatChartData = () => {
+    const LineData = {};
+    data.forEach((item) => {
+      const time = new Date(item.timestamp).toLocaleTimeString();
+      LineData[time] = (LineData[time] || 0) + 1;
+    });
+    return { LineData };
+  };
+
+  const { LineData } = formatChartData();
+
   const lineData = {
-    labels: data.map(item => new Date(item.timestamp).toLocaleTimeString()),
+    labels: Object.keys(LineData),
     datasets: [
       {
-        label: 'Number of Alerts Over TimeLine',
-        data: data.map((_, index) => index + 1),
+        label: "Number of Alerts Over TimeLine",
+        data: Object.values(LineData),
         borderColor: '#4299e1',
         backgroundColor: 'rgba(66, 153, 225, 0.2)',
         tension: 0.4,
@@ -32,7 +44,6 @@ const Dashboard = () => {
       },
     ],
   };
-
   const uniqueSignatures = [...new Set(data.map(item => item.alert.signature))];
   const truncatedLabels = uniqueSignatures.map(label => {
     const maxLength = 14; 
