@@ -13,7 +13,7 @@ const Dashboard = () => {
       setData(response.data);
     });
   }, []);
-
+//taken 30% of json data
   const lineData = {
     labels: data.map(item => new Date(item.timestamp).toLocaleTimeString()),
     datasets: [
