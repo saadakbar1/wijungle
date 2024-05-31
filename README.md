@@ -1,5 +1,4 @@
-# React + Vite
-
+I have extarcted 50% of json data and modified(severity part) as well.
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
